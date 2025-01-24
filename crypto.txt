@@ -1,0 +1,69 @@
+const express = require("express");
+const dotenv = require("dotenv");
+const CryptoJS = require("crypto-js");
+
+dotenv.config();
+const app = express();
+const PORT = process.env.PORT || 3000; // Ensure a default port in case the env variable is not set
+app.use(express.json()); // Use express.json() middleware properly
+
+// // Encrypt function
+// const encryptData = (data, secretKey) => {
+//   // Encrypt the data using the AES encryption algorithm and a secret key
+//   const encryptedData = CryptoJS.AES.encrypt(data, secretKey).toString();
+//   return encryptedData;
+// };
+
+// // Decrypt function
+// const decryptData = (encryptedData, secretKey) => {
+//   // Decrypt the data using the AES decryption algorithm and the same secret key
+//   const bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
+//   const decryptedData = bytes.toString(CryptoJS.enc.Utf8);
+//   return decryptedData;
+// };
+
+// // Example usage
+// const secretKey = "mySecretKey123"; // Secret key (should be same for encryption and decryption)
+// const data = "This is a secret message"; // Data to encrypt
+
+// // Encrypt the data
+// const encryptedData = encryptData(data, secretKey);
+// console.log("Encrypted Data:", encryptedData); // Base64 encrypted data
+
+// // Decrypt the data
+// const decryptedData = decryptData(
+//   "U2FsdGVkX1/YjuMcD/w73TJY0LVSM/TzwoOSB9ggCIVNMCipBL0mN/OZH+2yn53C",
+//   secretKey
+// );
+// console.log("Decrypted Data:", decryptedData); // The original plaintext data
+
+
+
+// Encryption function using AES
+const encryptData = (data, secretKey) => {
+  // Define the IV (Initialization Vector) for AES encryption (16 bytes for AES)
+  const iv = CryptoJS.enc.Utf8.parse('1234567890123456'); // 16-byte IV
+  const key = CryptoJS.enc.Utf8.parse(secretKey); // Make sure it's a 16-byte key
+
+  // Encrypt the data
+  const encryptedData = CryptoJS.AES.encrypt(data, key, { iv: iv }).toString(); // Returns Base64 encoded
+  return encryptedData;
+};
+
+// Example usage:
+const secretKey = "1234567890123456"; // Must be a 16-byte key for AES
+const data = "This is a secret message"; // Data to encrypt
+const encryptedData = encryptData(data, secretKey);
+console.log("Encrypted Data:", encryptedData);
+
+
+
+
+// API route for demonstration
+app.get("/", (req, res) => {
+  return res.json({ userName: "sameer", password: "sameer@123" });
+});
+
+app.listen(PORT, () => {
+  console.log(`SERVER RUNNING ON PORT: ${PORT}`);
+});
