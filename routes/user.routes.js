@@ -21,4 +21,8 @@ userRouter.delete("/task", verifyToken, userControllers.deleteTask);
 userRouter.put("/task", verifyToken, userControllers.updateTask);
 userRouter.get("/task", verifyToken, userControllers.getTasks);
 
+userRouter.get("/", (req, res) => {
+  return res.send("Hello task holder api from user");
+});
+
 module.exports = userRouter;
