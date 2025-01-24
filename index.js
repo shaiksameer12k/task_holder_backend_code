@@ -11,12 +11,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    // origin: "https://taskholderfrontend.vercel.app/", // Allow requests only from the frontend domain
-    origin: "*",
+    origin: "https://taskholderfrontend.vercel.app", // Allow requests only from the frontend domain
+
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    // credentials: true,
+    credentials: true,
   })
 );
+
 DBConnection();
 
 // routes start point
