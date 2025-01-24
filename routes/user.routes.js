@@ -4,9 +4,7 @@ const verifyToken = require("../middlewares/verifyToken");
 
 const userRouter = express.Router();
 
-userRouter.get("/", (req, res) => {
-  return res.send("Hello task holder api from user");
-});
+userRouter.get("/", userControllers.getRegisterUsers);
 
 userRouter.post("/registerUser", userControllers.userRegisterController);
 userRouter.delete(
