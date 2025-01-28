@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const userRouter = require("./routes/user.routes");
 const DBConnection = require("./db/DBConnection");
 const cors = require("cors");
+const fs = require("fs");
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -25,7 +26,7 @@ app.use(
 app.use("/user", userRouter);
 
 app.get("/", (req, res) => {
-  return res.send("Hello task holder api");
+  return res.send("Hello task holder api !");
 });
 
 app.get("/accesFile", (req, res) => {
