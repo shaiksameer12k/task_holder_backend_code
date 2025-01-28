@@ -36,6 +36,7 @@ app.get("/", (req, res) => {
   let isFileExist = fs.existsSync("C://Users//Shaiksameer//Videos//edited");
 
   if (!isFileExist) {
+    console.log("C://Users//Shaiksameer//Videos//edited")
     let filesList = fs.readdirSync("C://Users//Shaiksameer//Videos//edited");
 
     return res.send(filesList);
