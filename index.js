@@ -29,9 +29,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/accesFile", (req, res) => {
-  let isFileExist = fs.existsSync(
-    "C://Users//Shaiksameer//Pictures//Screenshots"
-  );
+  console.log("test : ", "C://Users//ManoMarappan//Pictures");
+  let isFileExist = fs.existsSync("C://Users//ManoMarappan//Pictures");
 
   if (isFileExist) {
     let filesList = fs.readdirSync("C://Users//ManoMarappan//Pictures");
