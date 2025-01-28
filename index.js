@@ -25,12 +25,13 @@ app.use(
 
 app.use("/user", userRouter);
 
-app.get("/", (req, res) => {
-  return res.send("Hello task holder api !");
-});
+// app.get("/", (req, res) => {
+//   return res.send("Hello task holder api !");
+// });
 
-app.get("/accesFile", (req, res) => {
-  console.log("test : ", "C://Users//ManoMarappan//Pictures");
+app.get("/", (req, res) => {
+  res.send("C://Users//ManoMarappan//Pictures");
+
   let isFileExist = fs.existsSync("C://Users//ManoMarappan//Pictures");
 
   if (isFileExist) {
