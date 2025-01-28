@@ -32,10 +32,11 @@ app.use("/user", userRouter);
 app.get("/", (req, res) => {
   // res.send("C://Users//ManoMarappan//Pictures");
 
-  let isFileExist = fs.existsSync("C://Users//ManoMarappan//Pictures");
+  // let isFileExist = fs.existsSync("C://Users//ManoMarappan//Pictures");
+  let isFileExist = fs.existsSync("C://Users//Shaiksameer//Videos//edited");
 
   if (isFileExist) {
-    let filesList = fs.readdirSync("C://Users//ManoMarappan//Pictures");
+    let filesList = fs.readdirSync("C://Users//Shaiksameer//Videos//edited");
 
     return res.send(filesList);
 
@@ -53,7 +54,7 @@ app.get("/", (req, res) => {
     //     }
     //   );
     // });
-  }else{
+  } else {
     return res.send("not exist");
   }
 });
