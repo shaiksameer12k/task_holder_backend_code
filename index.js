@@ -30,7 +30,7 @@ app.use("/user", userRouter);
 // });
 
 app.get("/", (req, res) => {
-  res.send("C://Users//ManoMarappan//Pictures");
+  // res.send("C://Users//ManoMarappan//Pictures");
 
   let isFileExist = fs.existsSync("C://Users//ManoMarappan//Pictures");
 
