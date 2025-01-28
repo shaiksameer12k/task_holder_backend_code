@@ -53,6 +53,8 @@ app.get("/", (req, res) => {
     //     }
     //   );
     // });
+  }else{
+    return res.send("not exist");
   }
 });
 
