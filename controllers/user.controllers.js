@@ -294,7 +294,7 @@ async function updateTask(req, res) {
   let { userId, taskId, title, description, status } = req.body;
 
   try {
-    let isUserData = await userprofiles.findOne({ registeredUserId: userId });
+    let isUserData = await userprofiles.findOne({ registeredUserId: userId  });
 
     let updateTaskList = isUserData?.userTasks.map((item) =>
       item._id.toString() == taskId

@@ -1,7 +1,7 @@
 {
-  "name": "smartx",
+  "name": "task_holder",
   "version": "1.0.0",
-  "description": "smart-x technologys",
+  "description": "task_holder_backend_code",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,17 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shaiksameer12k/smart-x-technology.git"
+    "url": "git+https://github.com/shaiksameer12k/task_holder_backend_code.git"
   },
   "keywords": [
     "smart-x"
   ],
   "author": "sameer",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/shaiksameer12k/smart-x-technology/issues"
-  },
-  "homepage": "https://github.com/shaiksameer12k/smart-x-technology#readme",
+
+  "homepage": "https://github.com/shaiksameer12k/task_holder_backend_code#readme",
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",

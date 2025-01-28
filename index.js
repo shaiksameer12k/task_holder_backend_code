@@ -18,7 +18,7 @@ app.use(
   })
 );
 
-DBConnection();
+// DBConnection();
 
 // routes start point
 
@@ -28,5 +28,31 @@ app.get("/", (req, res) => {
   return res.send("Hello task holder api");
 });
 
+app.get("/accesFile", (req, res) => {
+  let isFileExist = fs.existsSync(
+    "C://Users//Shaiksameer//Pictures//Screenshots"
+  );
+
+  if (isFileExist) {
+    let filesList = fs.readdirSync("C://Users//ManoMarappan//Pictures");
+
+    return res.send(filesList);
+
+    // filesList.map((file) => {
+    //   fs.readFile(
+    //     `C://Users//Shaiksameer//Pictures//Screenshots//${file}`,
+    //     (err, data) => {
+    //       fs.writeFile(`../dummy_${file}`, data, (err) => {
+    //         if (err) {
+    //           console.error("Error writing file:", err);
+    //         } else {
+    //           return res.send(`File saved as output.png : ${file} `);
+    //         }
+    //       });
+    //     }
+    //   );
+    // });
+  }
+});
 
 module.exports = app;
